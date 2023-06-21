@@ -1,9 +1,44 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import Posts from "../../../components/posts/Posts";
+import OrigamiContext from "../../../context/origami/OrigamiContext";
 
-export const Share = () => {
+const Share = () => {
+  const origamiContext = useContext(OrigamiContext);
+  const { logoutUser, isLoggedIn, privatePosts, submitPost } = origamiContext;
+  let history = useHistory();
+  const [text, setText] = useState("");
+  const onChange = (e) => {
+    setText(e.target.value);
+  };
+
+  const onSubmit = (e) => {
+    console.log(text);
+    submitPost(text);
+    setText("");
+  };
+  const onLogout = async () => {
+    logoutUser();
+    if (!isLoggedIn) {
+      history.push("/");
+    }
+  };
   return (
-    <div>
-      <h1>Share page</h1>
-    </div>
+    <>
+      <div className="Main">
+        <div className="Input">
+          <h1>Share your thoughts ...</h1>
+          <textarea name="text" value={text} onChange={onChange}></textarea>
+          <button onClick={onSubmit}>Post</button>
+        </div>
+        <div>
+          <h2>Last 3 post on your wall</h2>
+          <Posts posts={privatePosts.slice(-3).reverse()} />
+          <button onClick={onLogout}>Logout</button>
+        </div>
+      </div>
+    </>
   );
 };
+
+export default Share;
