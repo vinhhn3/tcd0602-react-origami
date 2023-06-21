@@ -36,6 +36,7 @@ const AuthState = (props) => {
   const logoutUser = async () => {
     const response = await OrigamiApi.logout();
     if (response.status === 200) {
+      origamiContext.clearPrivatePosts();
       dispatch({
         type: USER_LOGOUT,
       });

@@ -42,6 +42,12 @@ const OrigamiState = (props) => {
     }
   };
 
+  const clearPrivatePosts = () => {
+    dispatch({
+      type: GET_PRIVATE_POSTS,
+    });
+  };
+
   return (
     <OrigamiContext.Provider
       value={{
@@ -50,6 +56,7 @@ const OrigamiState = (props) => {
         getPublicPosts,
         submitPost,
         getPrivatePosts,
+        clearPrivatePosts,
       }}
     >
       {props.children}
