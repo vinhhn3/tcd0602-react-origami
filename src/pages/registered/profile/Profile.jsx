@@ -2,11 +2,14 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import logo from "../../../assets/logo.svg";
 import Posts from "../../../components/posts/Posts";
+import AuthContext from "../../../context/auth/AuthContext";
 import OrigamiContext from "../../../context/origami/OrigamiContext";
 
 const Profile = () => {
   const origamiContext = useContext(OrigamiContext);
-  const { userData, privatePosts, logoutUser, isLoggedIn } = origamiContext;
+  const authContext = useContext(AuthContext);
+  const { userData, isLoggedIn } = authContext;
+  const { privatePosts, logoutUser } = origamiContext;
   let history = useHistory();
 
   const onLogout = async () => {

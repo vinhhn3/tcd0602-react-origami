@@ -1,7 +1,7 @@
 import { useContext, useEffect, useReducer } from "react";
 import OrigamiApi from "../../api/OrigamiApi";
 import OrigamiContext from "../origami/OrigamiContext";
-import { USER_LOGIN } from "../types";
+import { USER_LOGIN, USER_LOGOUT } from "../types";
 import AuthContext from "./AuthContext";
 import AuthReducer from "./AuthReducer";
 
@@ -33,12 +33,22 @@ const AuthState = (props) => {
     }
   };
 
+  const logoutUser = async () => {
+    const response = await OrigamiApi.logout();
+    if (response.status === 200) {
+      dispatch({
+        type: USER_LOGOUT,
+      });
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
         isLoggedIn: state.isLoggedIn,
         userData: state.userData,
         loginUser,
+        logoutUser,
       }}
     >
       {props.children}

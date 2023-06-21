@@ -1,11 +1,6 @@
 import { useEffect, useReducer } from "react";
 import OrigamiApi from "../../api/OrigamiApi";
-import {
-  GET_ALL_POSTS,
-  GET_PRIVATE_POSTS,
-  USER_LOGIN,
-  USER_LOGOUT,
-} from "../types";
+import { GET_ALL_POSTS, GET_PRIVATE_POSTS } from "../types";
 import OrigamiContext from "./OrigamiContext";
 import OrigamiReducer from "./OrigamiReducer";
 
@@ -26,16 +21,16 @@ const OrigamiState = (props) => {
     localStorage.setItem("origami", JSON.stringify(state));
   }, [state]);
 
-  const loginUser = async (user) => {
-    const response = await OrigamiApi.login(user);
-    if (response.status === 200) {
-      await getPrivatePosts();
-      dispatch({
-        type: USER_LOGIN,
-        payload: response.data,
-      });
-    }
-  };
+  // const loginUser = async (user) => {
+  //   const response = await OrigamiApi.login(user);
+  //   if (response.status === 200) {
+  //     await getPrivatePosts();
+  //     dispatch({
+  //       type: USER_LOGIN,
+  //       payload: response.data,
+  //     });
+  //   }
+  // };
 
   const getPrivatePosts = async () => {
     const response = await OrigamiApi.getMyPosts();
@@ -45,14 +40,14 @@ const OrigamiState = (props) => {
     });
   };
 
-  const logoutUser = async () => {
-    const response = await OrigamiApi.logout();
-    if (response.status === 200) {
-      dispatch({
-        type: USER_LOGOUT,
-      });
-    }
-  };
+  // const logoutUser = async () => {
+  //   const response = await OrigamiApi.logout();
+  //   if (response.status === 200) {
+  //     dispatch({
+  //       type: USER_LOGOUT,
+  //     });
+  //   }
+  // };
 
   const getPublicPosts = async () => {
     const posts = await OrigamiApi.getAllPosts(5);
@@ -84,7 +79,7 @@ const OrigamiState = (props) => {
         // userData: state.userData,
         privatePosts: state.privatePosts,
         // loginUser,
-        logoutUser,
+        // logoutUser,
         getPublicPosts,
         submitPost,
         registerUser,

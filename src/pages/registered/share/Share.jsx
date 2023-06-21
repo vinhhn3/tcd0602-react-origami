@@ -1,11 +1,14 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import Posts from "../../../components/posts/Posts";
+import AuthContext from "../../../context/auth/AuthContext";
 import OrigamiContext from "../../../context/origami/OrigamiContext";
 
 const Share = () => {
+  const authContext = useContext(AuthContext);
   const origamiContext = useContext(OrigamiContext);
-  const { logoutUser, isLoggedIn, privatePosts, submitPost } = origamiContext;
+  const { logoutUser, isLoggedIn } = authContext;
+  const { privatePosts, submitPost } = origamiContext;
   let history = useHistory();
   const [text, setText] = useState("");
   const onChange = (e) => {

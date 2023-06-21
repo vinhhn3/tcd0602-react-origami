@@ -9,7 +9,11 @@ export default (state, action) => {
         userData: action.payload,
       };
     case USER_LOGOUT:
-      break;
+      return {
+        ...state,
+        isLoggedIn: false,
+        userData: {},
+      };
     default:
       return state;
   }
