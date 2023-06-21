@@ -18,7 +18,7 @@ const Share = () => {
     setText("");
   };
   const onLogout = async () => {
-    logoutUser();
+    await logoutUser();
     if (!isLoggedIn) {
       history.push("/");
     }

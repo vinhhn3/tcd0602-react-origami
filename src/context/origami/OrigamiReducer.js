@@ -12,41 +12,12 @@ export default (state, action) => {
         ...state,
         isLoggedIn: true,
         userData: action.payload,
-        linkItems: [
-          {
-            id: 1,
-            title: "Profile",
-            url: "/profile",
-          },
-          {
-            id: 2,
-            title: "Share",
-            url: "/share",
-          },
-        ],
       };
     case USER_LOGOUT:
       return {
         ...state,
         isLoggedIn: false,
         userData: {},
-        linkItems: [
-          {
-            id: 1,
-            title: "Post",
-            url: "/",
-          },
-          {
-            id: 2,
-            title: "Register",
-            url: "/register",
-          },
-          {
-            id: 3,
-            title: "Login",
-            url: "/login",
-          },
-        ],
       };
     case GET_ALL_POSTS:
       return {

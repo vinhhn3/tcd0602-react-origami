@@ -7,6 +7,7 @@ import NotFound from "../../pages/errors/not-found/NotFound";
 import Profile from "../../pages/registered/profile/Profile";
 import Share from "../../pages/registered/share/Share";
 
+import Account from "../../pages/admin/Account";
 import Home from "../../pages/shared/home/Home";
 import Login from "../../pages/unregistered/login/Login";
 import Register from "../../pages/unregistered/register/Register";
@@ -36,6 +37,9 @@ export const Body = () => {
         <PrivateRoute path="/share">
           <Share />
         </PrivateRoute>
+        <Route exact path="/admin">
+          <Account />
+        </Route>
         <Route path="">
           <NotFound />
         </Route>

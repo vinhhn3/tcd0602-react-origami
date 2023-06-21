@@ -15,23 +15,6 @@ const OrigamiState = (props) => {
     publicPosts: [],
     userData: {},
     privatePosts: [],
-    linkItems: [
-      {
-        id: 1,
-        title: "Post",
-        url: "/",
-      },
-      {
-        id: 2,
-        title: "Register",
-        url: "/register",
-      },
-      {
-        id: 3,
-        title: "Login",
-        url: "/login",
-      },
-    ],
   };
 
   const [state, dispatch] = useReducer(OrigamiReducer, initialState, () => {
@@ -97,7 +80,6 @@ const OrigamiState = (props) => {
     <OrigamiContext.Provider
       value={{
         isLoggedIn: state.isLoggedIn,
-        linkItems: state.linkItems,
         publicPosts: state.publicPosts,
         userData: state.userData,
         privatePosts: state.privatePosts,

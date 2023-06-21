@@ -9,8 +9,8 @@ const Profile = () => {
   const { userData, privatePosts, logoutUser, isLoggedIn } = origamiContext;
   let history = useHistory();
 
-  const onLogout = () => {
-    logoutUser();
+  const onLogout = async () => {
+    await logoutUser();
     if (!isLoggedIn) {
       history.push("/");
     }
