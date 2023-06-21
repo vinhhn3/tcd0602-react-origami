@@ -106,6 +106,7 @@ const OrigamiState = (props) => {
         getPublicPosts,
         submitPost,
         registerUser,
+        getPrivatePosts,
       }}
     >
       {props.children}

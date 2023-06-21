@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const axiosClient = new axios({
+const axiosClient = axios.create({
   baseURL: "http://localhost:9999/api",
   withCredentials: true,
 });
@@ -9,7 +9,7 @@ const getAllPosts = (limit) => {
   return axiosClient.get(`/origami/all?limit=${limit}`);
 };
 
-const registerUser = (user) => {
+const register = (user) => {
   return axiosClient.post("/user/register", user);
 };
 
@@ -31,7 +31,7 @@ const createPost = (text) => {
 
 const OrigamiApi = {
   getAllPosts,
-  registerUser,
+  register,
   login,
   logout,
   getMyPosts,

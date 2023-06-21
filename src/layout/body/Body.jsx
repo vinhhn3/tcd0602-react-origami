@@ -5,7 +5,7 @@ import { MyPosts } from "../../pages/registered/my-posts/MyPosts";
 import { Profile } from "../../pages/registered/profile/Profile";
 import { Home } from "../../pages/shared/home/Home";
 import { Login } from "../../pages/unregistered/login/Login";
-import { Register } from "../../pages/unregistered/register/Register";
+import Register from "../../pages/unregistered/register/Register";
 
 export const Body = () => {
   return (
