@@ -7,6 +7,7 @@ import NotFound from "../../pages/errors/not-found/NotFound";
 import Profile from "../../pages/registered/profile/Profile";
 import Share from "../../pages/registered/share/Share";
 
+import AuthContext from "../../context/auth/AuthContext";
 import Account from "../../pages/admin/Account";
 import Home from "../../pages/shared/home/Home";
 import Login from "../../pages/unregistered/login/Login";
@@ -14,8 +15,8 @@ import Register from "../../pages/unregistered/register/Register";
 import PrivateRoute from "../../routes/PrivateRoute";
 
 export const Body = () => {
-  const origamiContext = useContext(OrigamiContext);
-  const { isLoggedIn } = origamiContext;
+  const authContext = useContext(AuthContext);
+  const { isLoggedIn } = authContext;
   return (
     <div className="Main">
       <Switch>
