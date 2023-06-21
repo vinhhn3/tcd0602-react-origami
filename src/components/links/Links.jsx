@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import BirdFooter from "../../assets/blue-origami-bird-flipped.png";
 import BirdNavbar from "../../assets/white-origami-bird.png";
-import OrigamiContext from "../../context/origami/OrigamiContext";
+import AuthContext from "../../context/auth/AuthContext";
 import LinkItem from "./LinkItem";
 
 const Links = ({ logo }) => {
-  const origamiContext = useContext(OrigamiContext);
-  const { isLoggedIn } = origamiContext;
+  const authContext = useContext(AuthContext);
+  const { isLoggedIn } = authContext;
 
   return (
     <ul>

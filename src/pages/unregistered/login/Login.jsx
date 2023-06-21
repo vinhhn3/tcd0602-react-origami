@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
-import OrigamiContext from "../../../context/origami/OrigamiContext";
+import AuthContext from "../../../context/auth/AuthContext";
 
 const Login = () => {
-  const origamiContext = useContext(OrigamiContext);
-  const { isLoggedIn, loginUser } = origamiContext;
+  const authContext = useContext(AuthContext);
+  const { isLoggedIn, loginUser } = authContext;
   const [login, setLogin] = useState({
     username: "",
     password: "",

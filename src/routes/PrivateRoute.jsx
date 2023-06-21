@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { Redirect, Route } from "react-router-dom/cjs/react-router-dom";
-import OrigamiContext from "../context/origami/OrigamiContext";
+import AuthContext from "../context/auth/AuthContext";
 
 const PrivateRoute = ({ children, ...rest }) => {
-  const origamiContext = useContext(OrigamiContext);
-  const { isLoggedIn } = origamiContext;
+  const authContext = useContext(AuthContext);
+  const { isLoggedIn } = authContext;
   return (
     <Route
       {...rest}

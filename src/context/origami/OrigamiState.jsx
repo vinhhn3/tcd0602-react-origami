@@ -11,19 +11,19 @@ import OrigamiReducer from "./OrigamiReducer";
 
 const OrigamiState = (props) => {
   const initialState = {
-    isLoggedIn: false,
+    // isLoggedIn: false,
     publicPosts: [],
-    userData: {},
+    // userData: {},
     privatePosts: [],
   };
 
   const [state, dispatch] = useReducer(OrigamiReducer, initialState, () => {
-    const localState = localStorage.getItem("localState");
+    const localState = localStorage.getItem("origami");
     return localState ? JSON.parse(localState) : initialState;
   });
 
   useEffect(() => {
-    localStorage.setItem("localState", JSON.stringify(state));
+    localStorage.setItem("origami", JSON.stringify(state));
   }, [state]);
 
   const loginUser = async (user) => {
@@ -79,11 +79,11 @@ const OrigamiState = (props) => {
   return (
     <OrigamiContext.Provider
       value={{
-        isLoggedIn: state.isLoggedIn,
+        // isLoggedIn: state.isLoggedIn,
         publicPosts: state.publicPosts,
-        userData: state.userData,
+        // userData: state.userData,
         privatePosts: state.privatePosts,
-        loginUser,
+        // loginUser,
         logoutUser,
         getPublicPosts,
         submitPost,
