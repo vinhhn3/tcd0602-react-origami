@@ -42,13 +42,6 @@ const OrigamiState = (props) => {
     }
   };
 
-  const registerUser = async (user) => {
-    const response = await OrigamiApi.register(user);
-    if (response.status === 200) {
-      await loginUser({ username: user.username, password: user.password });
-    }
-  };
-
   return (
     <OrigamiContext.Provider
       value={{
@@ -56,7 +49,6 @@ const OrigamiState = (props) => {
         privatePosts: state.privatePosts,
         getPublicPosts,
         submitPost,
-        registerUser,
         getPrivatePosts,
       }}
     >

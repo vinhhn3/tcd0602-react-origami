@@ -8,8 +8,8 @@ import OrigamiContext from "../../../context/origami/OrigamiContext";
 const Profile = () => {
   const origamiContext = useContext(OrigamiContext);
   const authContext = useContext(AuthContext);
-  const { userData, isLoggedIn } = authContext;
-  const { privatePosts, logoutUser } = origamiContext;
+  const { userData, isLoggedIn, logoutUser } = authContext;
+  const { privatePosts } = origamiContext;
   let history = useHistory();
 
   const onLogout = async () => {
