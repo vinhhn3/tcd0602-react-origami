@@ -6,9 +6,7 @@ import OrigamiReducer from "./OrigamiReducer";
 
 const OrigamiState = (props) => {
   const initialState = {
-    // isLoggedIn: false,
     publicPosts: [],
-    // userData: {},
     privatePosts: [],
   };
 
@@ -21,17 +19,6 @@ const OrigamiState = (props) => {
     localStorage.setItem("origami", JSON.stringify(state));
   }, [state]);
 
-  // const loginUser = async (user) => {
-  //   const response = await OrigamiApi.login(user);
-  //   if (response.status === 200) {
-  //     await getPrivatePosts();
-  //     dispatch({
-  //       type: USER_LOGIN,
-  //       payload: response.data,
-  //     });
-  //   }
-  // };
-
   const getPrivatePosts = async () => {
     const response = await OrigamiApi.getMyPosts();
     dispatch({
@@ -39,15 +26,6 @@ const OrigamiState = (props) => {
       payload: response.data,
     });
   };
-
-  // const logoutUser = async () => {
-  //   const response = await OrigamiApi.logout();
-  //   if (response.status === 200) {
-  //     dispatch({
-  //       type: USER_LOGOUT,
-  //     });
-  //   }
-  // };
 
   const getPublicPosts = async () => {
     const posts = await OrigamiApi.getAllPosts(5);
@@ -74,12 +52,8 @@ const OrigamiState = (props) => {
   return (
     <OrigamiContext.Provider
       value={{
-        // isLoggedIn: state.isLoggedIn,
         publicPosts: state.publicPosts,
-        // userData: state.userData,
         privatePosts: state.privatePosts,
-        // loginUser,
-        // logoutUser,
         getPublicPosts,
         submitPost,
         registerUser,

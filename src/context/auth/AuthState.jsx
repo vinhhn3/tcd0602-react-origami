@@ -42,6 +42,13 @@ const AuthState = (props) => {
     }
   };
 
+    const registerUser = async (user) => {
+      const response = await OrigamiApi.register(user);
+      if (response.status === 200) {
+        await loginUser({ username: user.username, password: user.password });
+      }
+    };
+
   return (
     <AuthContext.Provider
       value={{
@@ -49,6 +56,7 @@ const AuthState = (props) => {
         userData: state.userData,
         loginUser,
         logoutUser,
+        registerUser,
       }}
     >
       {props.children}
