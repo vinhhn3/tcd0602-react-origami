@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom";
 import { NotFound } from "../../pages/errors/not-found/NotFound";
-import { MyPosts } from "../../pages/registered/my-posts/MyPosts";
 import { Profile } from "../../pages/registered/profile/Profile";
+import { Share } from "../../pages/registered/share/Share";
 import { Home } from "../../pages/shared/home/Home";
-import { Login } from "../../pages/unregistered/login/Login";
+import Login from "../../pages/unregistered/login/Login";
 import Register from "../../pages/unregistered/register/Register";
 
 export const Body = () => {
@@ -23,8 +23,8 @@ export const Body = () => {
         <Route exact path="/profile">
           <Profile />
         </Route>
-        <Route exact path="/my-posts">
-          <MyPosts />
+        <Route exact path="/share">
+          <Share />
         </Route>
         <Route path="">
           <NotFound />

@@ -1,9 +1,9 @@
 import React from "react";
 
-export const MyPosts = () => {
+export const Share = () => {
   return (
     <div>
-      <h2>My Posts page</h2>
+      <h1>Share page</h1>
     </div>
   );
 };
