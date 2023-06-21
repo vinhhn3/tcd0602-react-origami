@@ -1,10 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import logo from "../../../assets/logo.svg";
+import Posts from "../../../components/posts/Posts";
+import OrigamiContext from "../../../context/origami/OrigamiContext";
 
 const Profile = () => {
+  const origamiContext = useContext(OrigamiContext);
+  const { userData, privatePosts, logoutUser, isLoggedIn } = origamiContext;
+  let history = useHistory();
+
+  const onLogout = () => {
+    logoutUser();
+    if (!isLoggedIn) {
+      history.push("/");
+    }
+  };
   return (
-    <div>
-      <h1>Profile page</h1>
-    </div>
+    <>
+      <div className="Main">
+        <div className="Profile">
+          <img src={logo} />
+          <div className="personal-info">
+            <p>
+              <span>Email:</span>
+              {userData.username}
+            </p>
+            <p>
+              <span>Posts:</span>
+              {privatePosts.length}
+            </p>
+          </div>
+          <div>
+            <h2>3 of your recent posts</h2>
+            <Posts posts={privatePosts.slice(-3).reverse()} />
+            <button onClick={onLogout}>Logout</button>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
